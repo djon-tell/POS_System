@@ -4,7 +4,7 @@
 
 ## 🔍 Project Health  
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/djon-tell/POS_System/badge)](https://securityscorecards.dev/viewer/?uri=github.com/djon-tell/POS_System)  
-[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/10345/badge)](https://www.bestpractices.dev/projects/10345)  
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/10347/badge)](https://www.bestpractices.dev/projects/10347)  
 
 ---
 
