@@ -6,7 +6,6 @@ on:
   push:
     branches: [ "main" ]
 
-# 👇 Changed from read-all to least-privilege defaults
 permissions:
   contents: read
   actions: none
@@ -15,22 +14,17 @@ jobs:
   analysis:
     name: Scorecard analysis
     runs-on: ubuntu-latest
-    if: github.event.repository.default_branch == github.ref_name || github.event_name == 'pull_request'
-    
-    # 👇 Minimal permissions needed for this job
     permissions:
-      contents: read  # Required for checkout
-      security-events: write  # For code-scanning uploads
-      id-token: write  # For publishing results
+      contents: read
+      security-events: write
+      id-token: write
 
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
       - name: "Run analysis"
-        uses: ossf/scorecard-action@99b2f3e  # Latest commit hash
+        uses: ossf/scorecard-action@v2.3.1  # Fixed here
         with:
           results_file: results.sarif
           results_format: sarif
@@ -41,9 +35,3 @@ jobs:
         with:
           name: SARIF file
           path: results.sarif
-          retention-days: 5
-
-      - name: "Upload to code-scanning"
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: results.sarif
