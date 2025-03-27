@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: "Run analysis"
-        uses: ossf/scorecard-action@v2.3.1  # Fixed here
+        uses: ossf/scorecard-action@v2.4.1  # Fixed here
         with:
           results_file: results.sarif
           results_format: sarif
